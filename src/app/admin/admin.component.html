@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col bg-dark text-white">
+            <a class="navbar-brand">SPORTS STORE</a>
+        </div>
+    </div>
+    <div class="row mt-2">
+
+        <div class="col-3">
+            <button class="btn btn-outline-info btn-block"
+                    routerLink="/admin/main/products"
+                    routerLinkActive="active">
+                Products
+            </button>
+            <button class="btn btn-outline-info btn-block"
+                    routerLink="/admin/main/orders"
+                    routerLinkActive="active">
+                Orders
+            </button>
+            <button class="btn btn-outline-danger btn-block" (click)="logout()">
+              <!-- in logout-> router.navigateByUrl -->
+                Logout
+            </button>
+        </div>
+
+        <div class="col-9">
+            <router-outlet></router-outlet>
+            <!-- soo see here these are childs of components will lie  what ever ci=omes from router template from module it will be placed here-->
+        </div>
+
+    </div>
+</div>

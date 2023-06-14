@@ -1,0 +1,37 @@
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>ID</th><th>Name</th><th>Category</th><th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of getProducts()">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.category}}</td>
+            <td>{{p.price | currency:"USD":"symbol":"2.2-2"}}</td>
+            <td>
+                <button class="btn btn-sm btn-warning"
+                        [routerLink]="['/admin/main/products/edit', p.id]">
+                        <!-- simple string and dynamic data  -->
+                        <!-- So what the routerlink hashbang do statechange and   { path: "products/:mode/:id", component: ProductEditorComponent },//see this  >then browser publish and router tree suscribe...
+                        <!-- routerLink="/store" earlier no property binding needed
+                     routerLink's  buildblock-> directive anf hashbang is throw static string -->
+                     <!-- router link is a directive butt it doesnot have ng at start
+                    directive is a view element so routerlink is viewelement and here its parwent view is *ngfor so we
+                  want data from parent so we can get it by [] property binding and then parent view directive ngfor's dharma is give data to child view may be promoted too.. -->
+                    Edit
+                </button>
+
+
+                <button class="btn btn-sm btn-danger" (click)="deleteProduct(p.id)">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-primary" routerLink="/admin/main/products/create">
+    Create New Product
+</button>
